@@ -3,7 +3,8 @@
     "listing": "/tracker.html",
     "items": [
       "/tracker/GFLq/index.html",
-      "/tracker/ILMw/index.html"
+      "/tracker/ILMw/index.html",
+      "/tracker/OeNBm/index.html"
     ]
   },
   {
@@ -16,6 +17,29 @@
   },
   {
     "listing": "/sustainability.html",
-    "items": []
+    "items": [
+      "/sustainability/DataVisLinksMap/index.html",
+      "/sustainability/IneqTransm/index.html",
+      "/sustainability/TransitionAT/index.html"
+    ]
+  },
+  {
+    "listing": "/forecasting.html",
+    "items": [
+      "/forecasting/overview/index.html"
+    ]
+  },
+  {
+    "listing": "/finsyst.html",
+    "items": [
+      "/finsyst/FinSystHistAT/index.html"
+    ]
+  },
+  {
+    "listing": "/scrollytell.html",
+    "items": [
+      "/scrollytell/LiquDistrAT/index.html",
+      "/scrollytell/MeasTransInvFin/index.html"
+    ]
   }
 ]

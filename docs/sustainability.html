@@ -80,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
     const options = {
       valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -152,8 +152,24 @@ window.Quarto = {
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./scrollytell.html"> 
+<span class="menu-text">Scrollytell</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./tracker.html"> 
 <span class="menu-text">Tracker</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./forecasting.html"> 
+<span class="menu-text">Forecasting</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./sustainability.html" aria-current="page"> 
+<span class="menu-text">Sustainability</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./finsyst.html"> 
+<span class="menu-text">Financial Systems</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -197,7 +213,39 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="list grid quarto-listing-cols-3">
-
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1744652125299" data-listing-reading-time-sort="1" data-listing-word-count-sort="133">
+<a href="./sustainability/DataVisLinksMap/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Sustainability Links &amp; Dashboards
+</h5>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1744647749419" data-listing-reading-time-sort="1" data-listing-word-count-sort="155">
+<a href="./sustainability/IneqTransm/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Transmission
+</h5>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1747927706888" data-listing-reading-time-sort="1" data-listing-word-count-sort="173">
+<a href="./sustainability/TransitionAT/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Transition Dashboard
+</h5>
+</div>
+</div>
+</a>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
