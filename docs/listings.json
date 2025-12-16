@@ -26,19 +26,22 @@
   {
     "listing": "/forecasting.html",
     "items": [
-      "/forecasting/overview/index.html"
+      "/forecasting/overviewAT/index.html"
     ]
   },
   {
     "listing": "/finsyst.html",
     "items": [
-      "/finsyst/FinSystHistAT/index.html"
+      "/finsyst/FinSystHistAT/index.html",
+      "/finsyst/FinSystHistYU/index.html"
     ]
   },
   {
     "listing": "/scrollytell.html",
     "items": [
-      "/scrollytell/LiquDistrAT/index.html"
+      "/scrollytell/AssLbsDiscrGL/index.html",
+      "/scrollytell/LiquDistrAT/index.html",
+      "/scrollytell/MeasTransInvFin/index.html"
     ]
   }
 ]

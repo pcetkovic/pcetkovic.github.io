@@ -1,0 +1,333 @@
+"source","country","iso2","item","vint","revs","id","period","value"
+"EC","Bosnia & Herzegovina","BA","Real GDP","may2025","Spring 2025","202501",2025,2
+"EC","Bosnia & Herzegovina","BA","Real GDP","may2025","Spring 2025","202501",2026,2.3
+"EC","Bosnia & Herzegovina","BA","CPI","may2025","Spring 2025","202501",2025,3
+"EC","Bosnia & Herzegovina","BA","CPI","may2025","Spring 2025","202501",2026,3.3
+"EC","Bosnia & Herzegovina","BA","Fiscal balance","may2025","Spring 2025","202501",2025,-1.5
+"EC","Bosnia & Herzegovina","BA","Fiscal balance","may2025","Spring 2025","202501",2026,-1
+"EC","Bosnia & Herzegovina","BA","Current account","may2025","Spring 2025","202501",2025,-3.5
+"EC","Bosnia & Herzegovina","BA","Current account","may2025","Spring 2025","202501",2026,-3.3
+"EC","Croatia","HR","Real GDP","may2025","Spring 2025","202501",2025,3.2
+"EC","Croatia","HR","Real GDP","may2025","Spring 2025","202501",2026,2.9
+"EC","Croatia","HR","CPI","may2025","Spring 2025","202501",2025,3.4
+"EC","Croatia","HR","CPI","may2025","Spring 2025","202501",2026,2
+"EC","Croatia","HR","Fiscal balance","may2025","Spring 2025","202501",2025,-2.7
+"EC","Croatia","HR","Fiscal balance","may2025","Spring 2025","202501",2026,-2.6
+"EC","Croatia","HR","Current account","may2025","Spring 2025","202501",2025,-1.1
+"EC","Croatia","HR","Current account","may2025","Spring 2025","202501",2026,-1.1
+"EC","Montenegro","ME","Real GDP","may2025","Spring 2025","202501",2025,3
+"EC","Montenegro","ME","Real GDP","may2025","Spring 2025","202501",2026,3.2
+"EC","Montenegro","ME","CPI","may2025","Spring 2025","202501",2025,3
+"EC","Montenegro","ME","CPI","may2025","Spring 2025","202501",2026,2.5
+"EC","Montenegro","ME","Fiscal balance","may2025","Spring 2025","202501",2025,-3.7
+"EC","Montenegro","ME","Fiscal balance","may2025","Spring 2025","202501",2026,-3.4
+"EC","Montenegro","ME","Current account","may2025","Spring 2025","202501",2025,-17.9
+"EC","Montenegro","ME","Current account","may2025","Spring 2025","202501",2026,-17.5
+"EC","Serbia","RS","Real GDP","may2025","Spring 2025","202501",2025,3.2
+"EC","Serbia","RS","Real GDP","may2025","Spring 2025","202501",2026,3.8
+"EC","Serbia","RS","CPI","may2025","Spring 2025","202501",2025,4
+"EC","Serbia","RS","CPI","may2025","Spring 2025","202501",2026,3.5
+"EC","Serbia","RS","Fiscal balance","may2025","Spring 2025","202501",2025,-3
+"EC","Serbia","RS","Fiscal balance","may2025","Spring 2025","202501",2026,-3
+"EC","Serbia","RS","Current account","may2025","Spring 2025","202501",2025,-6.1
+"EC","Serbia","RS","Current account","may2025","Spring 2025","202501",2026,-5.9
+"wiiw","Bosnia & Herzegovina","BA","Real GDP","jul2025","Summer 2025","202502",2025,2.4
+"wiiw","Bosnia & Herzegovina","BA","Real GDP","jul2025","Summer 2025","202502",2026,2.8
+"wiiw","Bosnia & Herzegovina","BA","Real GDP","jul2025","Summer 2025","202502",2027,3.2
+"wiiw","Bosnia & Herzegovina","BA","CPI","jul2025","Summer 2025","202502",2025,2.5
+"wiiw","Bosnia & Herzegovina","BA","CPI","jul2025","Summer 2025","202502",2026,2
+"wiiw","Bosnia & Herzegovina","BA","CPI","jul2025","Summer 2025","202502",2027,1.8
+"wiiw","Bosnia & Herzegovina","BA","Fiscal balance","jul2025","Summer 2025","202502",2025,-0.7
+"wiiw","Bosnia & Herzegovina","BA","Fiscal balance","jul2025","Summer 2025","202502",2026,-1
+"wiiw","Bosnia & Herzegovina","BA","Fiscal balance","jul2025","Summer 2025","202502",2027,-1
+"wiiw","Bosnia & Herzegovina","BA","Current account","jul2025","Summer 2025","202502",2025,-4.8
+"wiiw","Bosnia & Herzegovina","BA","Current account","jul2025","Summer 2025","202502",2026,-4.9
+"wiiw","Bosnia & Herzegovina","BA","Current account","jul2025","Summer 2025","202502",2027,-4.9
+"wiiw","Croatia","HR","Real GDP","jul2025","Summer 2025","202502",2025,2.9
+"wiiw","Croatia","HR","Real GDP","jul2025","Summer 2025","202502",2026,2.8
+"wiiw","Croatia","HR","Real GDP","jul2025","Summer 2025","202502",2027,2.7
+"wiiw","Croatia","HR","CPI","jul2025","Summer 2025","202502",2025,3.5
+"wiiw","Croatia","HR","CPI","jul2025","Summer 2025","202502",2026,2.9
+"wiiw","Croatia","HR","CPI","jul2025","Summer 2025","202502",2027,2.8
+"wiiw","Croatia","HR","Fiscal balance","jul2025","Summer 2025","202502",2025,-2.2
+"wiiw","Croatia","HR","Fiscal balance","jul2025","Summer 2025","202502",2026,-2
+"wiiw","Croatia","HR","Fiscal balance","jul2025","Summer 2025","202502",2027,-2.9
+"wiiw","Croatia","HR","Current account","jul2025","Summer 2025","202502",2025,-0.5
+"wiiw","Croatia","HR","Current account","jul2025","Summer 2025","202502",2026,-0.4
+"wiiw","Croatia","HR","Current account","jul2025","Summer 2025","202502",2027,0.2
+"wiiw","Montenegro","ME","Real GDP","jul2025","Summer 2025","202502",2025,3.2
+"wiiw","Montenegro","ME","Real GDP","jul2025","Summer 2025","202502",2026,3.3
+"wiiw","Montenegro","ME","Real GDP","jul2025","Summer 2025","202502",2027,3.2
+"wiiw","Montenegro","ME","CPI","jul2025","Summer 2025","202502",2025,3.3
+"wiiw","Montenegro","ME","CPI","jul2025","Summer 2025","202502",2026,2.5
+"wiiw","Montenegro","ME","CPI","jul2025","Summer 2025","202502",2027,2.8
+"wiiw","Montenegro","ME","Fiscal balance","jul2025","Summer 2025","202502",2025,-2.5
+"wiiw","Montenegro","ME","Fiscal balance","jul2025","Summer 2025","202502",2026,-2.7
+"wiiw","Montenegro","ME","Fiscal balance","jul2025","Summer 2025","202502",2027,-2.3
+"wiiw","Montenegro","ME","Current account","jul2025","Summer 2025","202502",2025,-16
+"wiiw","Montenegro","ME","Current account","jul2025","Summer 2025","202502",2026,-15
+"wiiw","Montenegro","ME","Current account","jul2025","Summer 2025","202502",2027,-14
+"wiiw","Serbia","RS","Real GDP","jul2025","Summer 2025","202502",2025,3
+"wiiw","Serbia","RS","Real GDP","jul2025","Summer 2025","202502",2026,4
+"wiiw","Serbia","RS","Real GDP","jul2025","Summer 2025","202502",2027,4
+"wiiw","Serbia","RS","CPI","jul2025","Summer 2025","202502",2025,4.2
+"wiiw","Serbia","RS","CPI","jul2025","Summer 2025","202502",2026,3.5
+"wiiw","Serbia","RS","CPI","jul2025","Summer 2025","202502",2027,3
+"wiiw","Serbia","RS","Fiscal balance","jul2025","Summer 2025","202502",2025,-2.5
+"wiiw","Serbia","RS","Fiscal balance","jul2025","Summer 2025","202502",2026,-3
+"wiiw","Serbia","RS","Fiscal balance","jul2025","Summer 2025","202502",2027,-3.5
+"wiiw","Serbia","RS","Current account","jul2025","Summer 2025","202502",2025,-6
+"wiiw","Serbia","RS","Current account","jul2025","Summer 2025","202502",2026,-5.7
+"wiiw","Serbia","RS","Current account","jul2025","Summer 2025","202502",2027,-5.6
+"WB","Bosnia & Herzegovina","BA","Real GDP","apr2025","Spring 2025","202501",2025,2.7
+"WB","Bosnia & Herzegovina","BA","Real GDP","apr2025","Spring 2025","202501",2026,3.1
+"WB","Bosnia & Herzegovina","BA","Real GDP","apr2025","Spring 2025","202501",2027,3.5
+"WB","Bosnia & Herzegovina","BA","CPI","apr2025","Spring 2025","202501",2025,3
+"WB","Bosnia & Herzegovina","BA","CPI","apr2025","Spring 2025","202501",2026,1.8
+"WB","Bosnia & Herzegovina","BA","CPI","apr2025","Spring 2025","202501",2027,1.4
+"WB","Bosnia & Herzegovina","BA","Fiscal balance","apr2025","Spring 2025","202501",2025,-2.2
+"WB","Bosnia & Herzegovina","BA","Fiscal balance","apr2025","Spring 2025","202501",2026,-1.1
+"WB","Bosnia & Herzegovina","BA","Fiscal balance","apr2025","Spring 2025","202501",2027,-0.1
+"WB","Bosnia & Herzegovina","BA","Current account","apr2025","Spring 2025","202501",2025,-4.9
+"WB","Bosnia & Herzegovina","BA","Current account","apr2025","Spring 2025","202501",2026,-4.7
+"WB","Bosnia & Herzegovina","BA","Current account","apr2025","Spring 2025","202501",2027,-4.8
+"WB","Croatia","HR","Real GDP","apr2025","Spring 2025","202501",2025,NA
+"WB","Croatia","HR","Real GDP","apr2025","Spring 2025","202501",2026,NA
+"WB","Croatia","HR","Real GDP","apr2025","Spring 2025","202501",2027,NA
+"WB","Croatia","HR","CPI","apr2025","Spring 2025","202501",2025,NA
+"WB","Croatia","HR","CPI","apr2025","Spring 2025","202501",2026,NA
+"WB","Croatia","HR","CPI","apr2025","Spring 2025","202501",2027,NA
+"WB","Croatia","HR","Fiscal balance","apr2025","Spring 2025","202501",2025,NA
+"WB","Croatia","HR","Fiscal balance","apr2025","Spring 2025","202501",2026,NA
+"WB","Croatia","HR","Fiscal balance","apr2025","Spring 2025","202501",2027,NA
+"WB","Croatia","HR","Current account","apr2025","Spring 2025","202501",2025,NA
+"WB","Croatia","HR","Current account","apr2025","Spring 2025","202501",2026,NA
+"WB","Croatia","HR","Current account","apr2025","Spring 2025","202501",2027,NA
+"WB","Montenegro","ME","Real GDP","apr2025","Spring 2025","202501",2025,3
+"WB","Montenegro","ME","Real GDP","apr2025","Spring 2025","202501",2026,2.9
+"WB","Montenegro","ME","Real GDP","apr2025","Spring 2025","202501",2027,3
+"WB","Montenegro","ME","CPI","apr2025","Spring 2025","202501",2025,2.9
+"WB","Montenegro","ME","CPI","apr2025","Spring 2025","202501",2026,2.3
+"WB","Montenegro","ME","CPI","apr2025","Spring 2025","202501",2027,2
+"WB","Montenegro","ME","Fiscal balance","apr2025","Spring 2025","202501",2025,NA
+"WB","Montenegro","ME","Fiscal balance","apr2025","Spring 2025","202501",2026,NA
+"WB","Montenegro","ME","Fiscal balance","apr2025","Spring 2025","202501",2027,NA
+"WB","Montenegro","ME","Current account","apr2025","Spring 2025","202501",2025,-18.5
+"WB","Montenegro","ME","Current account","apr2025","Spring 2025","202501",2026,-18.1
+"WB","Montenegro","ME","Current account","apr2025","Spring 2025","202501",2027,-17.4
+"WB","Serbia","RS","Real GDP","apr2025","Spring 2025","202501",2025,3.5
+"WB","Serbia","RS","Real GDP","apr2025","Spring 2025","202501",2026,3.9
+"WB","Serbia","RS","Real GDP","apr2025","Spring 2025","202501",2027,4.2
+"WB","Serbia","RS","CPI","apr2025","Spring 2025","202501",2025,3.1
+"WB","Serbia","RS","CPI","apr2025","Spring 2025","202501",2026,3
+"WB","Serbia","RS","CPI","apr2025","Spring 2025","202501",2027,3
+"WB","Serbia","RS","Fiscal balance","apr2025","Spring 2025","202501",2025,NA
+"WB","Serbia","RS","Fiscal balance","apr2025","Spring 2025","202501",2026,NA
+"WB","Serbia","RS","Fiscal balance","apr2025","Spring 2025","202501",2027,NA
+"WB","Serbia","RS","Current account","apr2025","Spring 2025","202501",2025,-7
+"WB","Serbia","RS","Current account","apr2025","Spring 2025","202501",2026,-6.7
+"WB","Serbia","RS","Current account","apr2025","Spring 2025","202501",2027,-6.5
+"IMF","Bosnia & Herzegovina","BA","Real GDP","apr2025","Spring 2025","202501",2025,2.8
+"IMF","Bosnia & Herzegovina","BA","Real GDP","apr2025","Spring 2025","202501",2026,3
+"IMF","Bosnia & Herzegovina","BA","Real GDP","apr2025","Spring 2025","202501",2027,3
+"IMF","Bosnia & Herzegovina","BA","CPI","apr2025","Spring 2025","202501",2025,2.23
+"IMF","Bosnia & Herzegovina","BA","CPI","apr2025","Spring 2025","202501",2026,2.01
+"IMF","Bosnia & Herzegovina","BA","CPI","apr2025","Spring 2025","202501",2027,2
+"IMF","Bosnia & Herzegovina","BA","Fiscal balance","apr2025","Spring 2025","202501",2025,-1.12
+"IMF","Bosnia & Herzegovina","BA","Fiscal balance","apr2025","Spring 2025","202501",2026,-1.1
+"IMF","Bosnia & Herzegovina","BA","Fiscal balance","apr2025","Spring 2025","202501",2027,-0.719
+"IMF","Bosnia & Herzegovina","BA","Current account","apr2025","Spring 2025","202501",2025,-3.81
+"IMF","Bosnia & Herzegovina","BA","Current account","apr2025","Spring 2025","202501",2026,-3.81
+"IMF","Bosnia & Herzegovina","BA","Current account","apr2025","Spring 2025","202501",2027,-3.84
+"IMF","Croatia","HR","Real GDP","apr2025","Spring 2025","202501",2025,NA
+"IMF","Croatia","HR","Real GDP","apr2025","Spring 2025","202501",2026,NA
+"IMF","Croatia","HR","CPI","apr2025","Spring 2025","202501",2025,NA
+"IMF","Croatia","HR","CPI","apr2025","Spring 2025","202501",2026,NA
+"IMF","Croatia","HR","Fiscal balance","apr2025","Spring 2025","202501",2025,NA
+"IMF","Croatia","HR","Fiscal balance","apr2025","Spring 2025","202501",2026,NA
+"IMF","Croatia","HR","Current account","apr2025","Spring 2025","202501",2025,NA
+"IMF","Croatia","HR","Current account","apr2025","Spring 2025","202501",2026,NA
+"IMF","Montenegro","ME","Real GDP","apr2025","Spring 2025","202501",2025,NA
+"IMF","Montenegro","ME","Real GDP","apr2025","Spring 2025","202501",2026,NA
+"IMF","Montenegro","ME","CPI","apr2025","Spring 2025","202501",2025,NA
+"IMF","Montenegro","ME","CPI","apr2025","Spring 2025","202501",2026,NA
+"IMF","Montenegro","ME","Fiscal balance","apr2025","Spring 2025","202501",2025,NA
+"IMF","Montenegro","ME","Fiscal balance","apr2025","Spring 2025","202501",2026,NA
+"IMF","Montenegro","ME","Current account","apr2025","Spring 2025","202501",2025,NA
+"IMF","Montenegro","ME","Current account","apr2025","Spring 2025","202501",2026,NA
+"IMF","Serbia","RS","Real GDP","apr2025","Spring 2025","202501",2025,NA
+"IMF","Serbia","RS","Real GDP","apr2025","Spring 2025","202501",2026,NA
+"IMF","Serbia","RS","CPI","apr2025","Spring 2025","202501",2025,NA
+"IMF","Serbia","RS","CPI","apr2025","Spring 2025","202501",2026,NA
+"IMF","Serbia","RS","Fiscal balance","apr2025","Spring 2025","202501",2025,NA
+"IMF","Serbia","RS","Fiscal balance","apr2025","Spring 2025","202501",2026,NA
+"IMF","Serbia","RS","Current account","apr2025","Spring 2025","202501",2025,NA
+"IMF","Serbia","RS","Current account","apr2025","Spring 2025","202501",2026,NA
+"wiiw","Bosnia & Herzegovina","BA","Real GDP","oct2025","Autumn 2025","202503",2025,2.2
+"wiiw","Bosnia & Herzegovina","BA","Real GDP","oct2025","Autumn 2025","202503",2026,2.7
+"wiiw","Bosnia & Herzegovina","BA","Real GDP","oct2025","Autumn 2025","202503",2027,3
+"wiiw","Bosnia & Herzegovina","BA","CPI","oct2025","Autumn 2025","202503",2025,3.3
+"wiiw","Bosnia & Herzegovina","BA","CPI","oct2025","Autumn 2025","202503",2026,2.4
+"wiiw","Bosnia & Herzegovina","BA","CPI","oct2025","Autumn 2025","202503",2027,1.8
+"wiiw","Bosnia & Herzegovina","BA","Fiscal balance","oct2025","Autumn 2025","202503",2025,-2
+"wiiw","Bosnia & Herzegovina","BA","Fiscal balance","oct2025","Autumn 2025","202503",2026,-1.3
+"wiiw","Bosnia & Herzegovina","BA","Fiscal balance","oct2025","Autumn 2025","202503",2027,-1
+"wiiw","Bosnia & Herzegovina","BA","Current account","oct2025","Autumn 2025","202503",2025,-4.4
+"wiiw","Bosnia & Herzegovina","BA","Current account","oct2025","Autumn 2025","202503",2026,-4.3
+"wiiw","Bosnia & Herzegovina","BA","Current account","oct2025","Autumn 2025","202503",2027,-4.2
+"wiiw","Croatia","HR","Real GDP","oct2025","Autumn 2025","202503",2025,3
+"wiiw","Croatia","HR","Real GDP","oct2025","Autumn 2025","202503",2026,2.8
+"wiiw","Croatia","HR","Real GDP","oct2025","Autumn 2025","202503",2027,2.7
+"wiiw","Croatia","HR","CPI","oct2025","Autumn 2025","202503",2025,3.7
+"wiiw","Croatia","HR","CPI","oct2025","Autumn 2025","202503",2026,2.9
+"wiiw","Croatia","HR","CPI","oct2025","Autumn 2025","202503",2027,2.8
+"wiiw","Croatia","HR","Fiscal balance","oct2025","Autumn 2025","202503",2025,-2.4
+"wiiw","Croatia","HR","Fiscal balance","oct2025","Autumn 2025","202503",2026,-2.2
+"wiiw","Croatia","HR","Fiscal balance","oct2025","Autumn 2025","202503",2027,-1.9
+"wiiw","Croatia","HR","Current account","oct2025","Autumn 2025","202503",2025,-1.3
+"wiiw","Croatia","HR","Current account","oct2025","Autumn 2025","202503",2026,-1.1
+"wiiw","Croatia","HR","Current account","oct2025","Autumn 2025","202503",2027,-1
+"wiiw","Montenegro","ME","Real GDP","oct2025","Autumn 2025","202503",2025,3.4
+"wiiw","Montenegro","ME","Real GDP","oct2025","Autumn 2025","202503",2026,3.4
+"wiiw","Montenegro","ME","Real GDP","oct2025","Autumn 2025","202503",2027,3.2
+"wiiw","Montenegro","ME","CPI","oct2025","Autumn 2025","202503",2025,4
+"wiiw","Montenegro","ME","CPI","oct2025","Autumn 2025","202503",2026,3.6
+"wiiw","Montenegro","ME","CPI","oct2025","Autumn 2025","202503",2027,3
+"wiiw","Montenegro","ME","Fiscal balance","oct2025","Autumn 2025","202503",2025,-3
+"wiiw","Montenegro","ME","Fiscal balance","oct2025","Autumn 2025","202503",2026,-3
+"wiiw","Montenegro","ME","Fiscal balance","oct2025","Autumn 2025","202503",2027,-3
+"wiiw","Montenegro","ME","Current account","oct2025","Autumn 2025","202503",2025,-16.2
+"wiiw","Montenegro","ME","Current account","oct2025","Autumn 2025","202503",2026,-15.8
+"wiiw","Montenegro","ME","Current account","oct2025","Autumn 2025","202503",2027,-15.5
+"wiiw","Serbia","RS","Real GDP","oct2025","Autumn 2025","202503",2025,2
+"wiiw","Serbia","RS","Real GDP","oct2025","Autumn 2025","202503",2026,3.5
+"wiiw","Serbia","RS","Real GDP","oct2025","Autumn 2025","202503",2027,4
+"wiiw","Serbia","RS","CPI","oct2025","Autumn 2025","202503",2025,4.5
+"wiiw","Serbia","RS","CPI","oct2025","Autumn 2025","202503",2026,4
+"wiiw","Serbia","RS","CPI","oct2025","Autumn 2025","202503",2027,3.5
+"wiiw","Serbia","RS","Fiscal balance","oct2025","Autumn 2025","202503",2025,-2.5
+"wiiw","Serbia","RS","Fiscal balance","oct2025","Autumn 2025","202503",2026,-3
+"wiiw","Serbia","RS","Fiscal balance","oct2025","Autumn 2025","202503",2027,-3.5
+"wiiw","Serbia","RS","Current account","oct2025","Autumn 2025","202503",2025,-4.5
+"wiiw","Serbia","RS","Current account","oct2025","Autumn 2025","202503",2026,-4.3
+"wiiw","Serbia","RS","Current account","oct2025","Autumn 2025","202503",2027,-4.2
+"EC","Bosnia & Herzegovina","BA","Real GDP","nov2025","Autumn 2025","202503",2025,1.8
+"EC","Bosnia & Herzegovina","BA","Real GDP","nov2025","Autumn 2025","202503",2026,2.2
+"EC","Bosnia & Herzegovina","BA","Real GDP","nov2025","Autumn 2025","202503",2027,2.5
+"EC","Bosnia & Herzegovina","BA","CPI","nov2025","Autumn 2025","202503",2025,4
+"EC","Bosnia & Herzegovina","BA","CPI","nov2025","Autumn 2025","202503",2026,3.3
+"EC","Bosnia & Herzegovina","BA","CPI","nov2025","Autumn 2025","202503",2027,3
+"EC","Bosnia & Herzegovina","BA","Fiscal balance","nov2025","Autumn 2025","202503",2025,-2.5
+"EC","Bosnia & Herzegovina","BA","Fiscal balance","nov2025","Autumn 2025","202503",2026,-3
+"EC","Bosnia & Herzegovina","BA","Fiscal balance","nov2025","Autumn 2025","202503",2027,-2.7
+"EC","Bosnia & Herzegovina","BA","Current account","nov2025","Autumn 2025","202503",2025,-3.9
+"EC","Bosnia & Herzegovina","BA","Current account","nov2025","Autumn 2025","202503",2026,-4.1
+"EC","Bosnia & Herzegovina","BA","Current account","nov2025","Autumn 2025","202503",2027,-4.2
+"EC","Croatia","HR","Real GDP","nov2025","Autumn 2025","202503",2025,NA
+"EC","Croatia","HR","Real GDP","nov2025","Autumn 2025","202503",2026,NA
+"EC","Croatia","HR","CPI","nov2025","Autumn 2025","202503",2025,NA
+"EC","Croatia","HR","CPI","nov2025","Autumn 2025","202503",2026,NA
+"EC","Croatia","HR","Fiscal balance","nov2025","Autumn 2025","202503",2025,NA
+"EC","Croatia","HR","Fiscal balance","nov2025","Autumn 2025","202503",2026,NA
+"EC","Croatia","HR","Current account","nov2025","Autumn 2025","202503",2025,NA
+"EC","Croatia","HR","Current account","nov2025","Autumn 2025","202503",2026,NA
+"EC","Montenegro","ME","Real GDP","nov2025","Autumn 2025","202503",2025,NA
+"EC","Montenegro","ME","Real GDP","nov2025","Autumn 2025","202503",2026,NA
+"EC","Montenegro","ME","CPI","nov2025","Autumn 2025","202503",2025,NA
+"EC","Montenegro","ME","CPI","nov2025","Autumn 2025","202503",2026,NA
+"EC","Montenegro","ME","Fiscal balance","nov2025","Autumn 2025","202503",2025,NA
+"EC","Montenegro","ME","Fiscal balance","nov2025","Autumn 2025","202503",2026,NA
+"EC","Montenegro","ME","Current account","nov2025","Autumn 2025","202503",2025,NA
+"EC","Montenegro","ME","Current account","nov2025","Autumn 2025","202503",2026,NA
+"EC","Serbia","RS","Real GDP","nov2025","Autumn 2025","202503",2025,NA
+"EC","Serbia","RS","Real GDP","nov2025","Autumn 2025","202503",2026,NA
+"EC","Serbia","RS","CPI","nov2025","Autumn 2025","202503",2025,NA
+"EC","Serbia","RS","CPI","nov2025","Autumn 2025","202503",2026,NA
+"EC","Serbia","RS","Fiscal balance","nov2025","Autumn 2025","202503",2025,NA
+"EC","Serbia","RS","Fiscal balance","nov2025","Autumn 2025","202503",2026,NA
+"EC","Serbia","RS","Current account","nov2025","Autumn 2025","202503",2025,NA
+"EC","Serbia","RS","Current account","nov2025","Autumn 2025","202503",2026,NA
+"WB","Bosnia & Herzegovina","BA","Real GDP","oct2025","Autumn 2025","202503",2025,2.6
+"WB","Bosnia & Herzegovina","BA","Real GDP","oct2025","Autumn 2025","202503",2026,3
+"WB","Bosnia & Herzegovina","BA","Real GDP","oct2025","Autumn 2025","202503",2027,3.2
+"WB","Bosnia & Herzegovina","BA","CPI","oct2025","Autumn 2025","202503",2025,3.5
+"WB","Bosnia & Herzegovina","BA","CPI","oct2025","Autumn 2025","202503",2026,1.9
+"WB","Bosnia & Herzegovina","BA","CPI","oct2025","Autumn 2025","202503",2027,1.7
+"WB","Bosnia & Herzegovina","BA","Fiscal balance","oct2025","Autumn 2025","202503",2025,-1.5
+"WB","Bosnia & Herzegovina","BA","Fiscal balance","oct2025","Autumn 2025","202503",2026,-0.7
+"WB","Bosnia & Herzegovina","BA","Fiscal balance","oct2025","Autumn 2025","202503",2027,0.3
+"WB","Bosnia & Herzegovina","BA","Current account","oct2025","Autumn 2025","202503",2025,-4.3
+"WB","Bosnia & Herzegovina","BA","Current account","oct2025","Autumn 2025","202503",2026,-4.5
+"WB","Bosnia & Herzegovina","BA","Current account","oct2025","Autumn 2025","202503",2027,-4.7
+"WB","Croatia","HR","Real GDP","oct2025","Autumn 2025","202503",2025,NA
+"WB","Croatia","HR","Real GDP","oct2025","Autumn 2025","202503",2026,NA
+"WB","Croatia","HR","Real GDP","oct2025","Autumn 2025","202503",2027,NA
+"WB","Croatia","HR","CPI","oct2025","Autumn 2025","202503",2025,NA
+"WB","Croatia","HR","CPI","oct2025","Autumn 2025","202503",2026,NA
+"WB","Croatia","HR","CPI","oct2025","Autumn 2025","202503",2027,NA
+"WB","Croatia","HR","Fiscal balance","oct2025","Autumn 2025","202503",2025,NA
+"WB","Croatia","HR","Fiscal balance","oct2025","Autumn 2025","202503",2026,NA
+"WB","Croatia","HR","Fiscal balance","oct2025","Autumn 2025","202503",2027,NA
+"WB","Croatia","HR","Current account","oct2025","Autumn 2025","202503",2025,NA
+"WB","Croatia","HR","Current account","oct2025","Autumn 2025","202503",2026,NA
+"WB","Croatia","HR","Current account","oct2025","Autumn 2025","202503",2027,NA
+"WB","Montenegro","ME","Real GDP","oct2025","Autumn 2025","202503",2025,NA
+"WB","Montenegro","ME","Real GDP","oct2025","Autumn 2025","202503",2026,NA
+"WB","Montenegro","ME","Real GDP","oct2025","Autumn 2025","202503",2027,NA
+"WB","Montenegro","ME","CPI","oct2025","Autumn 2025","202503",2025,NA
+"WB","Montenegro","ME","CPI","oct2025","Autumn 2025","202503",2026,NA
+"WB","Montenegro","ME","CPI","oct2025","Autumn 2025","202503",2027,NA
+"WB","Montenegro","ME","Fiscal balance","oct2025","Autumn 2025","202503",2025,NA
+"WB","Montenegro","ME","Fiscal balance","oct2025","Autumn 2025","202503",2026,NA
+"WB","Montenegro","ME","Fiscal balance","oct2025","Autumn 2025","202503",2027,NA
+"WB","Montenegro","ME","Current account","oct2025","Autumn 2025","202503",2025,NA
+"WB","Montenegro","ME","Current account","oct2025","Autumn 2025","202503",2026,NA
+"WB","Montenegro","ME","Current account","oct2025","Autumn 2025","202503",2027,NA
+"WB","Serbia","RS","Real GDP","oct2025","Autumn 2025","202503",2025,NA
+"WB","Serbia","RS","Real GDP","oct2025","Autumn 2025","202503",2026,NA
+"WB","Serbia","RS","Real GDP","oct2025","Autumn 2025","202503",2027,NA
+"WB","Serbia","RS","CPI","oct2025","Autumn 2025","202503",2025,NA
+"WB","Serbia","RS","CPI","oct2025","Autumn 2025","202503",2026,NA
+"WB","Serbia","RS","CPI","oct2025","Autumn 2025","202503",2027,NA
+"WB","Serbia","RS","Fiscal balance","oct2025","Autumn 2025","202503",2025,NA
+"WB","Serbia","RS","Fiscal balance","oct2025","Autumn 2025","202503",2026,NA
+"WB","Serbia","RS","Fiscal balance","oct2025","Autumn 2025","202503",2027,NA
+"WB","Serbia","RS","Current account","oct2025","Autumn 2025","202503",2025,NA
+"WB","Serbia","RS","Current account","oct2025","Autumn 2025","202503",2026,NA
+"WB","Serbia","RS","Current account","oct2025","Autumn 2025","202503",2027,NA
+"IMF","Bosnia & Herzegovina","BA","Real GDP","oct2025","Autumn 2025","202503",2025,2.4
+"IMF","Bosnia & Herzegovina","BA","Real GDP","oct2025","Autumn 2025","202503",2026,2.7
+"IMF","Bosnia & Herzegovina","BA","Real GDP","oct2025","Autumn 2025","202503",2027,3
+"IMF","Bosnia & Herzegovina","BA","CPI","oct2025","Autumn 2025","202503",2025,4
+"IMF","Bosnia & Herzegovina","BA","CPI","oct2025","Autumn 2025","202503",2026,2.56
+"IMF","Bosnia & Herzegovina","BA","CPI","oct2025","Autumn 2025","202503",2027,2.04
+"IMF","Bosnia & Herzegovina","BA","Fiscal balance","oct2025","Autumn 2025","202503",2025,-2.43
+"IMF","Bosnia & Herzegovina","BA","Fiscal balance","oct2025","Autumn 2025","202503",2026,-2.73
+"IMF","Bosnia & Herzegovina","BA","Fiscal balance","oct2025","Autumn 2025","202503",2027,-2.7
+"IMF","Bosnia & Herzegovina","BA","Current account","oct2025","Autumn 2025","202503",2025,-3.85
+"IMF","Bosnia & Herzegovina","BA","Current account","oct2025","Autumn 2025","202503",2026,-3.9
+"IMF","Bosnia & Herzegovina","BA","Current account","oct2025","Autumn 2025","202503",2027,-3.9
+"IMF","Croatia","HR","Real GDP","oct2025","Autumn 2025","202503",2025,NA
+"IMF","Croatia","HR","Real GDP","oct2025","Autumn 2025","202503",2026,NA
+"IMF","Croatia","HR","CPI","oct2025","Autumn 2025","202503",2025,NA
+"IMF","Croatia","HR","CPI","oct2025","Autumn 2025","202503",2026,NA
+"IMF","Croatia","HR","Fiscal balance","oct2025","Autumn 2025","202503",2025,NA
+"IMF","Croatia","HR","Fiscal balance","oct2025","Autumn 2025","202503",2026,NA
+"IMF","Croatia","HR","Current account","oct2025","Autumn 2025","202503",2025,NA
+"IMF","Croatia","HR","Current account","oct2025","Autumn 2025","202503",2026,NA
+"IMF","Montenegro","ME","Real GDP","oct2025","Autumn 2025","202503",2025,NA
+"IMF","Montenegro","ME","Real GDP","oct2025","Autumn 2025","202503",2026,NA
+"IMF","Montenegro","ME","CPI","oct2025","Autumn 2025","202503",2025,NA
+"IMF","Montenegro","ME","CPI","oct2025","Autumn 2025","202503",2026,NA
+"IMF","Montenegro","ME","Fiscal balance","oct2025","Autumn 2025","202503",2025,NA
+"IMF","Montenegro","ME","Fiscal balance","oct2025","Autumn 2025","202503",2026,NA
+"IMF","Montenegro","ME","Current account","oct2025","Autumn 2025","202503",2025,NA
+"IMF","Montenegro","ME","Current account","oct2025","Autumn 2025","202503",2026,NA
+"IMF","Serbia","RS","Real GDP","oct2025","Autumn 2025","202503",2025,NA
+"IMF","Serbia","RS","Real GDP","oct2025","Autumn 2025","202503",2026,NA
+"IMF","Serbia","RS","CPI","oct2025","Autumn 2025","202503",2025,NA
+"IMF","Serbia","RS","CPI","oct2025","Autumn 2025","202503",2026,NA
+"IMF","Serbia","RS","Fiscal balance","oct2025","Autumn 2025","202503",2025,NA
+"IMF","Serbia","RS","Fiscal balance","oct2025","Autumn 2025","202503",2026,NA
+"IMF","Serbia","RS","Current account","oct2025","Autumn 2025","202503",2025,NA
+"IMF","Serbia","RS","Current account","oct2025","Autumn 2025","202503",2026,NA
