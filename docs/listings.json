@@ -8,19 +8,10 @@
     ]
   },
   {
-    "listing": "/posts.html",
+    "listing": "/finsyst.html",
     "items": [
-      "/posts/OthSecEurosyst/index.html",
-      "/posts/MonGoldReval/index.html",
-      "/posts/AnnRepOeNB/index.html"
-    ]
-  },
-  {
-    "listing": "/sustainability.html",
-    "items": [
-      "/sustainability/DataVisLinksMap/index.html",
-      "/sustainability/IneqTransm/index.html",
-      "/sustainability/TransitionAT/index.html"
+      "/finsyst/FinSystHistAT/index.html",
+      "/finsyst/FinSystHistYU/index.html"
     ]
   },
   {
@@ -30,14 +21,21 @@
     ]
   },
   {
-    "listing": "/finsyst.html",
+    "listing": "/posts.html",
     "items": [
-      "/finsyst/FinSystHistAT/index.html",
-      "/finsyst/FinSystHistYU/index.html"
+      "/posts/OthSecEurosyst/index.html",
+      "/posts/MonGoldReval/index.html",
+      "/posts/AnnRepOeNB/index.html"
     ]
   },
   {
     "listing": "/scrollytell.html",
     "items": []
+  },
+  {
+    "listing": "/sustainability.html",
+    "items": [
+      "/sustainability/TransitionAT/index.html"
+    ]
   }
 ]

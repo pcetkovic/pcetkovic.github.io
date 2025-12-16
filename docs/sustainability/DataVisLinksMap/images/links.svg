@@ -1,9 +1,0 @@
-<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='1432.80pt' height='712.80pt' viewBox='0 0 1432.80 712.80'>
-<g transform='translate(20,20)' stroke-width='2' stroke='black'>
-<g transform='translate(0,0)' stroke-width='2' stroke='black'>
-<text transform='translate(10,15)' class='tooltipText' stroke-width='0' fill='blue' style='text-anchor: left;'>Monetary Policy</text>
-<a xlink:href = 'https://www.bis.org/mc/compendium.htm' target='_blank'><text x='200' y='15' class='tooltipText' stroke-width='0' fill='blue' style='text-anchor: middle;'>MC</text></a>
-<a xlink:href = 'https://e-axes.org/tableau_iframe/policy-visualization/' target='_blank'><text x='300' y='15' class='tooltipText' stroke-width='0' fill='blue' style='text-anchor: middle;'>GMFP</text></a>
-</g>
-</g>
-</svg>
