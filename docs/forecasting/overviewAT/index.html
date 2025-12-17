@@ -108,20 +108,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </script>
 
-
-
-<!-- Privacy-friendly analytics by Plausible -->
-
-<script async="" src="https://plausible.io/js/pa-kp0xoKiRIEH6AZOW8iHSc.js"></script>
-
-<script>
-
-  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-
-  plausible.init()
-
-</script>
-
 <script type="module" src="../../site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
 <link href="../../site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
@@ -178,7 +164,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#net-lending" id="toc-net-lending" class="nav-link" data-scroll-target="#net-lending">Net Lending</a></li>
   </ul>
 </nav>
     </div>
@@ -554,399 +539,510 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!--   }; -->
 <!-- })()) -->
 <!-- ``` -->
-</section>
-<section id="net-lending" class="level1">
-<h1>Net Lending</h1>
-<div class="grid">
-<section id="total-economy" class="level3 g-col-4">
-<h3 class="anchored" data-anchor-id="total-economy">Total Economy</h3>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb8" data-startfrom="395" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 394;"><span id="cb8-395"><a href="#cb8-395" aria-hidden="true" tabindex="-1"></a>d3 <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://cdn.jsdelivr.net/npm/d3@7/+esm"</span>)</span>
-<span id="cb8-396"><a href="#cb8-396" aria-hidden="true" tabindex="-1"></a>Plot2 <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">"https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm"</span>)</span>
-<span id="cb8-397"><a href="#cb8-397" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-398"><a href="#cb8-398" aria-hidden="true" tabindex="-1"></a>d3<span class="op">.</span><span class="fu">csv</span>(<span class="st">"NASAsel.csv"</span><span class="op">,</span> d <span class="kw">=&gt;</span> ({</span>
-<span id="cb8-399"><a href="#cb8-399" aria-hidden="true" tabindex="-1"></a>  <span class="dt">time</span><span class="op">:</span> d<span class="op">.</span><span class="at">time</span><span class="op">,</span> <span class="co">// &lt;-- als String</span></span>
-<span id="cb8-400"><a href="#cb8-400" aria-hidden="true" tabindex="-1"></a>  <span class="dt">sector</span><span class="op">:</span> d<span class="op">.</span><span class="at">sector</span><span class="op">,</span></span>
-<span id="cb8-401"><a href="#cb8-401" aria-hidden="true" tabindex="-1"></a>  <span class="dt">values</span><span class="op">:</span> <span class="op">+</span>d<span class="op">.</span><span class="at">values</span><span class="op">,</span></span>
-<span id="cb8-402"><a href="#cb8-402" aria-hidden="true" tabindex="-1"></a>  <span class="dt">pcntgdp</span><span class="op">:</span> <span class="op">+</span>d<span class="op">.</span><span class="at">pcntgdp</span></span>
-<span id="cb8-403"><a href="#cb8-403" aria-hidden="true" tabindex="-1"></a>}))<span class="op">.</span><span class="fu">then</span>(rawData <span class="kw">=&gt;</span> {</span>
-<span id="cb8-404"><a href="#cb8-404" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb8-405"><a href="#cb8-405" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> realData <span class="op">=</span> rawData<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> <span class="op">+</span>d<span class="op">.</span><span class="at">time</span> <span class="op">&lt;=</span> <span class="dv">2021</span>)</span>
-<span id="cb8-406"><a href="#cb8-406" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-407"><a href="#cb8-407" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> forecastDataRaw <span class="op">=</span> rawData<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> <span class="op">+</span>d<span class="op">.</span><span class="at">time</span> <span class="op">&gt;=</span> <span class="dv">2022</span>)</span>
-<span id="cb8-408"><a href="#cb8-408" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-409"><a href="#cb8-409" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> mergedSectors <span class="op">=</span> [<span class="st">"S11"</span><span class="op">,</span> <span class="st">"S12"</span><span class="op">,</span> <span class="st">"S14"</span><span class="op">,</span> <span class="st">"S15"</span>]</span>
-<span id="cb8-410"><a href="#cb8-410" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> forecastSingle <span class="op">=</span> forecastDataRaw<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> <span class="op">!</span>mergedSectors<span class="op">.</span><span class="fu">includes</span>(d<span class="op">.</span><span class="at">sector</span>))</span>
-<span id="cb8-411"><a href="#cb8-411" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-412"><a href="#cb8-412" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> forecastMerged <span class="op">=</span> d3<span class="op">.</span><span class="fu">rollups</span>(</span>
-<span id="cb8-413"><a href="#cb8-413" aria-hidden="true" tabindex="-1"></a>    forecastDataRaw<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> mergedSectors<span class="op">.</span><span class="fu">includes</span>(d<span class="op">.</span><span class="at">sector</span>))<span class="op">,</span></span>
-<span id="cb8-414"><a href="#cb8-414" aria-hidden="true" tabindex="-1"></a>    v <span class="kw">=&gt;</span> ({</span>
-<span id="cb8-415"><a href="#cb8-415" aria-hidden="true" tabindex="-1"></a>      <span class="dt">values</span><span class="op">:</span> d3<span class="op">.</span><span class="fu">sum</span>(v<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">values</span>)<span class="op">,</span></span>
-<span id="cb8-416"><a href="#cb8-416" aria-hidden="true" tabindex="-1"></a>      <span class="dt">pcntgdp</span><span class="op">:</span> d3<span class="op">.</span><span class="fu">sum</span>(v<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">pcntgdp</span>)</span>
-<span id="cb8-417"><a href="#cb8-417" aria-hidden="true" tabindex="-1"></a>    })<span class="op">,</span></span>
-<span id="cb8-418"><a href="#cb8-418" aria-hidden="true" tabindex="-1"></a>    d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">time</span></span>
-<span id="cb8-419"><a href="#cb8-419" aria-hidden="true" tabindex="-1"></a>  )<span class="op">.</span><span class="fu">map</span>(([time<span class="op">,</span> sums]) <span class="kw">=&gt;</span> ({</span>
-<span id="cb8-420"><a href="#cb8-420" aria-hidden="true" tabindex="-1"></a>    time<span class="op">,</span></span>
-<span id="cb8-421"><a href="#cb8-421" aria-hidden="true" tabindex="-1"></a>    <span class="dt">sector</span><span class="op">:</span> <span class="st">"S11–S12–S14–S15"</span><span class="op">,</span></span>
-<span id="cb8-422"><a href="#cb8-422" aria-hidden="true" tabindex="-1"></a>    <span class="dt">values</span><span class="op">:</span> sums<span class="op">.</span><span class="at">values</span><span class="op">,</span></span>
-<span id="cb8-423"><a href="#cb8-423" aria-hidden="true" tabindex="-1"></a>    <span class="dt">pcntgdp</span><span class="op">:</span> sums<span class="op">.</span><span class="at">pcntgdp</span></span>
-<span id="cb8-424"><a href="#cb8-424" aria-hidden="true" tabindex="-1"></a>  }))</span>
-<span id="cb8-425"><a href="#cb8-425" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-426"><a href="#cb8-426" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> finalData <span class="op">=</span> realData<span class="op">.</span><span class="fu">concat</span>(forecastSingle)<span class="op">.</span><span class="fu">concat</span>(forecastMerged)</span>
-<span id="cb8-427"><a href="#cb8-427" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-428"><a href="#cb8-428" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> customColors <span class="op">=</span> {</span>
-<span id="cb8-429"><a href="#cb8-429" aria-hidden="true" tabindex="-1"></a>    <span class="st">"S11"</span><span class="op">:</span> <span class="st">"#1f77b4"</span><span class="op">,</span></span>
-<span id="cb8-430"><a href="#cb8-430" aria-hidden="true" tabindex="-1"></a>    <span class="st">"S12"</span><span class="op">:</span> <span class="st">"#ff7f0e"</span><span class="op">,</span></span>
-<span id="cb8-431"><a href="#cb8-431" aria-hidden="true" tabindex="-1"></a>    <span class="st">"S13"</span><span class="op">:</span> <span class="st">"#2ca02c"</span><span class="op">,</span></span>
-<span id="cb8-432"><a href="#cb8-432" aria-hidden="true" tabindex="-1"></a>    <span class="st">"S14"</span><span class="op">:</span> <span class="st">"#d62728"</span><span class="op">,</span></span>
-<span id="cb8-433"><a href="#cb8-433" aria-hidden="true" tabindex="-1"></a>    <span class="st">"S15"</span><span class="op">:</span> <span class="st">"#9467bd"</span><span class="op">,</span></span>
-<span id="cb8-434"><a href="#cb8-434" aria-hidden="true" tabindex="-1"></a>    <span class="st">"S2"</span><span class="op">:</span> <span class="st">"#8c564b"</span><span class="op">,</span></span>
-<span id="cb8-435"><a href="#cb8-435" aria-hidden="true" tabindex="-1"></a>    <span class="st">"S11–S12–S14–S15"</span><span class="op">:</span> <span class="st">"#8888aa"</span></span>
-<span id="cb8-436"><a href="#cb8-436" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb8-437"><a href="#cb8-437" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-438"><a href="#cb8-438" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> Plot2<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb8-439"><a href="#cb8-439" aria-hidden="true" tabindex="-1"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb8-440"><a href="#cb8-440" aria-hidden="true" tabindex="-1"></a>      <span class="co">// Echte Daten</span></span>
-<span id="cb8-441"><a href="#cb8-441" aria-hidden="true" tabindex="-1"></a>      Plot2<span class="op">.</span><span class="fu">barY</span>(</span>
-<span id="cb8-442"><a href="#cb8-442" aria-hidden="true" tabindex="-1"></a>        finalData<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> <span class="op">+</span>d<span class="op">.</span><span class="at">time</span> <span class="op">&lt;=</span> <span class="dv">2021</span>)<span class="op">,</span></span>
-<span id="cb8-443"><a href="#cb8-443" aria-hidden="true" tabindex="-1"></a>        {</span>
-<span id="cb8-444"><a href="#cb8-444" aria-hidden="true" tabindex="-1"></a>          <span class="dt">x</span><span class="op">:</span> <span class="st">"time"</span><span class="op">,</span></span>
-<span id="cb8-445"><a href="#cb8-445" aria-hidden="true" tabindex="-1"></a>          <span class="dt">y</span><span class="op">:</span> <span class="st">"pcntgdp"</span><span class="op">,</span></span>
-<span id="cb8-446"><a href="#cb8-446" aria-hidden="true" tabindex="-1"></a>          <span class="dt">fill</span><span class="op">:</span> <span class="st">"sector"</span><span class="op">,</span></span>
-<span id="cb8-447"><a href="#cb8-447" aria-hidden="true" tabindex="-1"></a>          <span class="dt">title</span><span class="op">:</span> d <span class="kw">=&gt;</span> <span class="vs">`</span><span class="sc">${</span>d<span class="op">.</span><span class="at">sector</span><span class="sc">}</span><span class="vs">: </span><span class="sc">${</span>d<span class="op">.</span><span class="at">pcntgdp</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">2</span>)<span class="sc">}</span><span class="vs"> %`</span><span class="op">,</span></span>
-<span id="cb8-448"><a href="#cb8-448" aria-hidden="true" tabindex="-1"></a>          <span class="dt">tip</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb8-449"><a href="#cb8-449" aria-hidden="true" tabindex="-1"></a>          <span class="dt">order</span><span class="op">:</span> <span class="st">"sector"</span></span>
-<span id="cb8-450"><a href="#cb8-450" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb8-451"><a href="#cb8-451" aria-hidden="true" tabindex="-1"></a>      )<span class="op">,</span></span>
-<span id="cb8-452"><a href="#cb8-452" aria-hidden="true" tabindex="-1"></a>      <span class="co">// Forecast-Daten</span></span>
-<span id="cb8-453"><a href="#cb8-453" aria-hidden="true" tabindex="-1"></a>      Plot2<span class="op">.</span><span class="fu">barY</span>(</span>
-<span id="cb8-454"><a href="#cb8-454" aria-hidden="true" tabindex="-1"></a>        finalData<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> <span class="op">+</span>d<span class="op">.</span><span class="at">time</span> <span class="op">&gt;=</span> <span class="dv">2022</span>)<span class="op">,</span></span>
-<span id="cb8-455"><a href="#cb8-455" aria-hidden="true" tabindex="-1"></a>        {</span>
-<span id="cb8-456"><a href="#cb8-456" aria-hidden="true" tabindex="-1"></a>          <span class="dt">x</span><span class="op">:</span> <span class="st">"time"</span><span class="op">,</span></span>
-<span id="cb8-457"><a href="#cb8-457" aria-hidden="true" tabindex="-1"></a>          <span class="dt">y</span><span class="op">:</span> <span class="st">"pcntgdp"</span><span class="op">,</span></span>
-<span id="cb8-458"><a href="#cb8-458" aria-hidden="true" tabindex="-1"></a>          <span class="dt">fill</span><span class="op">:</span> <span class="st">"sector"</span><span class="op">,</span></span>
-<span id="cb8-459"><a href="#cb8-459" aria-hidden="true" tabindex="-1"></a>          <span class="dt">title</span><span class="op">:</span> d <span class="kw">=&gt;</span> <span class="vs">`</span><span class="sc">${</span>d<span class="op">.</span><span class="at">sector</span><span class="sc">}</span><span class="vs">: </span><span class="sc">${</span>d<span class="op">.</span><span class="at">pcntgdp</span><span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">2</span>)<span class="sc">}</span><span class="vs"> %`</span><span class="op">,</span></span>
-<span id="cb8-460"><a href="#cb8-460" aria-hidden="true" tabindex="-1"></a>          <span class="dt">tip</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb8-461"><a href="#cb8-461" aria-hidden="true" tabindex="-1"></a>          <span class="dt">order</span><span class="op">:</span> <span class="st">"sector"</span><span class="op">,</span></span>
-<span id="cb8-462"><a href="#cb8-462" aria-hidden="true" tabindex="-1"></a>          <span class="dt">opacity</span><span class="op">:</span> <span class="fl">0.5</span></span>
-<span id="cb8-463"><a href="#cb8-463" aria-hidden="true" tabindex="-1"></a>          <span class="co">// kein stroke, kein strokeWidth</span></span>
-<span id="cb8-464"><a href="#cb8-464" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb8-465"><a href="#cb8-465" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb8-466"><a href="#cb8-466" aria-hidden="true" tabindex="-1"></a>    ]<span class="op">,</span></span>
-<span id="cb8-467"><a href="#cb8-467" aria-hidden="true" tabindex="-1"></a>    <span class="dt">color</span><span class="op">:</span> {</span>
-<span id="cb8-468"><a href="#cb8-468" aria-hidden="true" tabindex="-1"></a>      <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb8-469"><a href="#cb8-469" aria-hidden="true" tabindex="-1"></a>      <span class="dt">label</span><span class="op">:</span> <span class="st">"Sektor"</span><span class="op">,</span></span>
-<span id="cb8-470"><a href="#cb8-470" aria-hidden="true" tabindex="-1"></a>      <span class="dt">domain</span><span class="op">:</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">keys</span>(customColors)<span class="op">,</span></span>
-<span id="cb8-471"><a href="#cb8-471" aria-hidden="true" tabindex="-1"></a>      <span class="dt">range</span><span class="op">:</span> <span class="bu">Object</span><span class="op">.</span><span class="fu">values</span>(customColors)</span>
-<span id="cb8-472"><a href="#cb8-472" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb8-473"><a href="#cb8-473" aria-hidden="true" tabindex="-1"></a>    <span class="dt">x</span><span class="op">:</span> {</span>
-<span id="cb8-474"><a href="#cb8-474" aria-hidden="true" tabindex="-1"></a>      <span class="dt">label</span><span class="op">:</span> <span class="st">"Jahr"</span><span class="op">,</span></span>
-<span id="cb8-475"><a href="#cb8-475" aria-hidden="true" tabindex="-1"></a>      <span class="dt">tickFormat</span><span class="op">:</span> d <span class="kw">=&gt;</span> d <span class="co">// jetzt String</span></span>
-<span id="cb8-476"><a href="#cb8-476" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb8-477"><a href="#cb8-477" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> {</span>
-<span id="cb8-478"><a href="#cb8-478" aria-hidden="true" tabindex="-1"></a>      <span class="dt">label</span><span class="op">:</span> <span class="st">"% des BIP"</span></span>
-<span id="cb8-479"><a href="#cb8-479" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb8-480"><a href="#cb8-480" aria-hidden="true" tabindex="-1"></a>    <span class="dt">style</span><span class="op">:</span> {</span>
-<span id="cb8-481"><a href="#cb8-481" aria-hidden="true" tabindex="-1"></a>      <span class="dt">fontSize</span><span class="op">:</span> <span class="st">"12px"</span><span class="op">,</span></span>
-<span id="cb8-482"><a href="#cb8-482" aria-hidden="true" tabindex="-1"></a>      <span class="dt">backgroundColor</span><span class="op">:</span> <span class="st">"black"</span> </span>
-<span id="cb8-483"><a href="#cb8-483" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb8-484"><a href="#cb8-484" aria-hidden="true" tabindex="-1"></a>    <span class="dt">width</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
-<span id="cb8-485"><a href="#cb8-485" aria-hidden="true" tabindex="-1"></a>    <span class="dt">height</span><span class="op">:</span> <span class="dv">250</span></span>
-<span id="cb8-486"><a href="#cb8-486" aria-hidden="true" tabindex="-1"></a>  })<span class="op">;</span></span>
-<span id="cb8-487"><a href="#cb8-487" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-8-1" data-nodetype="declaration">
+<!-- # Net Lending
 
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-8-2" data-nodetype="declaration">
+::::::: grid
+::: g-col-4
+### Total Economy
 
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-8-3" data-nodetype="expression">
 
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="section" class="level3 g-col-1">
-<h3 class="anchored" data-anchor-id="section"></h3>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">S11 Non-fin. corp.</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">S12 Fin. corp.</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">S13 Gen.&nbsp;gov.</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">S14 Households</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">S15 NPISH</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">S2 Rest of the world</span>
-</p>
-</section>
-<section id="section-1" class="level3 g-col-3">
-<h3 class="anchored" data-anchor-id="section-1"></h3>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">B2A3G Gross operating surplus and mixed income</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">D1 Compensation of employees</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">D2 Taxes on production and imports</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">D3 Subsidies</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">D41 Interest</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">D42 Distributed income of corporations</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">D43 Reinvested earnings on direct foreign investment</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">D44 Other investment income</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">D45 Rents</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">D5 Current taxes on income, wealth, etc.</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">D61 Net social contributions</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">D62 Social benefits other than social transfers in kind</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">D7 Other current transfers</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">D8 Adjustment for the change in pension entitlements</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">D9 Capital transfers</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">NP</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">P3</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">P5G</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">P6</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">P7</span>
-</p>
-<p style="margin-bottom:-15px;margin-top:0px">
-<span style="color:#2ca02c;font-size:10px">B9</span>
-</p>
-</section>
-<section id="government-sector" class="level3 g-col-4">
-<h3 class="anchored" data-anchor-id="government-sector">Government Sector</h3>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb9" data-startfrom="585" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 584;"><span id="cb9-585"><a href="#cb9-585" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb9-586"><a href="#cb9-586" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
-<span id="cb9-587"><a href="#cb9-587" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">250</span><span class="op">,</span></span>
-<span id="cb9-588"><a href="#cb9-588" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {</span>
-<span id="cb9-589"><a href="#cb9-589" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Jahr"</span></span>
-<span id="cb9-590"><a href="#cb9-590" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb9-591"><a href="#cb9-591" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {</span>
-<span id="cb9-592"><a href="#cb9-592" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Wert (values)"</span><span class="op">,</span></span>
-<span id="cb9-593"><a href="#cb9-593" aria-hidden="true" tabindex="-1"></a>    <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb9-594"><a href="#cb9-594" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb9-595"><a href="#cb9-595" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {</span>
-<span id="cb9-596"><a href="#cb9-596" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Item"</span><span class="op">,</span></span>
-<span id="cb9-597"><a href="#cb9-597" aria-hidden="true" tabindex="-1"></a>    <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb9-598"><a href="#cb9-598" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb9-599"><a href="#cb9-599" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> {<span class="dt">backgroundColor</span><span class="op">:</span> <span class="st">"black"</span>}<span class="op">,</span></span>
-<span id="cb9-600"><a href="#cb9-600" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb9-601"><a href="#cb9-601" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">barY</span>(</span>
-<span id="cb9-602"><a href="#cb9-602" aria-hidden="true" tabindex="-1"></a>      <span class="co">// Filter auf S11 und sicherstellen, dass time ein String ist</span></span>
-<span id="cb9-603"><a href="#cb9-603" aria-hidden="true" tabindex="-1"></a>      datNASAB9</span>
-<span id="cb9-604"><a href="#cb9-604" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">sector</span> <span class="op">===</span> <span class="st">"S13"</span>)</span>
-<span id="cb9-605"><a href="#cb9-605" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> ({</span>
-<span id="cb9-606"><a href="#cb9-606" aria-hidden="true" tabindex="-1"></a>          <span class="op">...</span>d<span class="op">,</span></span>
-<span id="cb9-607"><a href="#cb9-607" aria-hidden="true" tabindex="-1"></a>          <span class="dt">time</span><span class="op">:</span> d<span class="op">.</span><span class="at">time</span><span class="op">.</span><span class="fu">toString</span>()</span>
-<span id="cb9-608"><a href="#cb9-608" aria-hidden="true" tabindex="-1"></a>        }))<span class="op">,</span></span>
-<span id="cb9-609"><a href="#cb9-609" aria-hidden="true" tabindex="-1"></a>      {</span>
-<span id="cb9-610"><a href="#cb9-610" aria-hidden="true" tabindex="-1"></a>        <span class="dt">x</span><span class="op">:</span> <span class="st">"time"</span><span class="op">,</span></span>
-<span id="cb9-611"><a href="#cb9-611" aria-hidden="true" tabindex="-1"></a>        <span class="dt">y</span><span class="op">:</span> <span class="st">"values"</span><span class="op">,</span></span>
-<span id="cb9-612"><a href="#cb9-612" aria-hidden="true" tabindex="-1"></a>        <span class="dt">fill</span><span class="op">:</span> <span class="st">"item"</span><span class="op">,</span></span>
-<span id="cb9-613"><a href="#cb9-613" aria-hidden="true" tabindex="-1"></a>        <span class="dt">tip</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb9-614"><a href="#cb9-614" aria-hidden="true" tabindex="-1"></a>        <span class="co">// kein sort nötig bei Strings, außer du willst manuell sortieren</span></span>
-<span id="cb9-615"><a href="#cb9-615" aria-hidden="true" tabindex="-1"></a>        <span class="co">// sort: {x: "time"}</span></span>
-<span id="cb9-616"><a href="#cb9-616" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb9-617"><a href="#cb9-617" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb9-618"><a href="#cb9-618" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb9-619"><a href="#cb9-619" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-9" data-nodetype="expression">
 
-</div>
-</div>
-</div>
-</section>
-</div>
-<div class="grid">
-<section id="non-financial-corporations" class="level3 g-col-4">
-<h3 class="anchored" data-anchor-id="non-financial-corporations">Non-Financial Corporations</h3>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb10" data-startfrom="630" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 629;"><span id="cb10-630"><a href="#cb10-630" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb10-631"><a href="#cb10-631" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
-<span id="cb10-632"><a href="#cb10-632" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">250</span><span class="op">,</span></span>
-<span id="cb10-633"><a href="#cb10-633" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {</span>
-<span id="cb10-634"><a href="#cb10-634" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Jahr"</span></span>
-<span id="cb10-635"><a href="#cb10-635" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb10-636"><a href="#cb10-636" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {</span>
-<span id="cb10-637"><a href="#cb10-637" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Wert (values)"</span><span class="op">,</span></span>
-<span id="cb10-638"><a href="#cb10-638" aria-hidden="true" tabindex="-1"></a>    <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb10-639"><a href="#cb10-639" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb10-640"><a href="#cb10-640" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {</span>
-<span id="cb10-641"><a href="#cb10-641" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Item"</span><span class="op">,</span></span>
-<span id="cb10-642"><a href="#cb10-642" aria-hidden="true" tabindex="-1"></a>    <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb10-643"><a href="#cb10-643" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb10-644"><a href="#cb10-644" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> {<span class="dt">backgroundColor</span><span class="op">:</span> <span class="st">"black"</span>}<span class="op">,</span></span>
-<span id="cb10-645"><a href="#cb10-645" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb10-646"><a href="#cb10-646" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">barY</span>(</span>
-<span id="cb10-647"><a href="#cb10-647" aria-hidden="true" tabindex="-1"></a>      <span class="co">// Filter auf S11 und sicherstellen, dass time ein String ist</span></span>
-<span id="cb10-648"><a href="#cb10-648" aria-hidden="true" tabindex="-1"></a>      datNASAB9</span>
-<span id="cb10-649"><a href="#cb10-649" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">sector</span> <span class="op">===</span> <span class="st">"S11"</span>)</span>
-<span id="cb10-650"><a href="#cb10-650" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> ({</span>
-<span id="cb10-651"><a href="#cb10-651" aria-hidden="true" tabindex="-1"></a>          <span class="op">...</span>d<span class="op">,</span></span>
-<span id="cb10-652"><a href="#cb10-652" aria-hidden="true" tabindex="-1"></a>          <span class="dt">time</span><span class="op">:</span> d<span class="op">.</span><span class="at">time</span><span class="op">.</span><span class="fu">toString</span>()</span>
-<span id="cb10-653"><a href="#cb10-653" aria-hidden="true" tabindex="-1"></a>        }))<span class="op">,</span></span>
-<span id="cb10-654"><a href="#cb10-654" aria-hidden="true" tabindex="-1"></a>      {</span>
-<span id="cb10-655"><a href="#cb10-655" aria-hidden="true" tabindex="-1"></a>        <span class="dt">x</span><span class="op">:</span> <span class="st">"time"</span><span class="op">,</span></span>
-<span id="cb10-656"><a href="#cb10-656" aria-hidden="true" tabindex="-1"></a>        <span class="dt">y</span><span class="op">:</span> <span class="st">"values"</span><span class="op">,</span></span>
-<span id="cb10-657"><a href="#cb10-657" aria-hidden="true" tabindex="-1"></a>        <span class="dt">fill</span><span class="op">:</span> <span class="st">"item"</span><span class="op">,</span></span>
-<span id="cb10-658"><a href="#cb10-658" aria-hidden="true" tabindex="-1"></a>        <span class="dt">tip</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb10-659"><a href="#cb10-659" aria-hidden="true" tabindex="-1"></a>        <span class="co">// kein sort nötig bei Strings, außer du willst manuell sortieren</span></span>
-<span id="cb10-660"><a href="#cb10-660" aria-hidden="true" tabindex="-1"></a>        <span class="co">// sort: {x: "time"}</span></span>
-<span id="cb10-661"><a href="#cb10-661" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb10-662"><a href="#cb10-662" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb10-663"><a href="#cb10-663" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb10-664"><a href="#cb10-664" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-10" data-nodetype="expression">
 
-</div>
-</div>
-</div>
-</section>
-<section id="financial-corporations" class="level3 g-col-4">
-<h3 class="anchored" data-anchor-id="financial-corporations">Financial Corporations</h3>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb11" data-startfrom="673" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 672;"><span id="cb11-673"><a href="#cb11-673" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb11-674"><a href="#cb11-674" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
-<span id="cb11-675"><a href="#cb11-675" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">250</span><span class="op">,</span></span>
-<span id="cb11-676"><a href="#cb11-676" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {</span>
-<span id="cb11-677"><a href="#cb11-677" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Jahr"</span></span>
-<span id="cb11-678"><a href="#cb11-678" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb11-679"><a href="#cb11-679" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {</span>
-<span id="cb11-680"><a href="#cb11-680" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Wert (values)"</span><span class="op">,</span></span>
-<span id="cb11-681"><a href="#cb11-681" aria-hidden="true" tabindex="-1"></a>    <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb11-682"><a href="#cb11-682" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb11-683"><a href="#cb11-683" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {</span>
-<span id="cb11-684"><a href="#cb11-684" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Item"</span><span class="op">,</span></span>
-<span id="cb11-685"><a href="#cb11-685" aria-hidden="true" tabindex="-1"></a>    <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb11-686"><a href="#cb11-686" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb11-687"><a href="#cb11-687" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> {<span class="dt">backgroundColor</span><span class="op">:</span> <span class="st">"black"</span>}<span class="op">,</span></span>
-<span id="cb11-688"><a href="#cb11-688" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb11-689"><a href="#cb11-689" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">barY</span>(</span>
-<span id="cb11-690"><a href="#cb11-690" aria-hidden="true" tabindex="-1"></a>      <span class="co">// Filter auf S11 und sicherstellen, dass time ein String ist</span></span>
-<span id="cb11-691"><a href="#cb11-691" aria-hidden="true" tabindex="-1"></a>      datNASAB9</span>
-<span id="cb11-692"><a href="#cb11-692" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">sector</span> <span class="op">===</span> <span class="st">"S12"</span>)</span>
-<span id="cb11-693"><a href="#cb11-693" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> ({</span>
-<span id="cb11-694"><a href="#cb11-694" aria-hidden="true" tabindex="-1"></a>          <span class="op">...</span>d<span class="op">,</span></span>
-<span id="cb11-695"><a href="#cb11-695" aria-hidden="true" tabindex="-1"></a>          <span class="dt">time</span><span class="op">:</span> d<span class="op">.</span><span class="at">time</span><span class="op">.</span><span class="fu">toString</span>()</span>
-<span id="cb11-696"><a href="#cb11-696" aria-hidden="true" tabindex="-1"></a>        }))<span class="op">,</span></span>
-<span id="cb11-697"><a href="#cb11-697" aria-hidden="true" tabindex="-1"></a>      {</span>
-<span id="cb11-698"><a href="#cb11-698" aria-hidden="true" tabindex="-1"></a>        <span class="dt">x</span><span class="op">:</span> <span class="st">"time"</span><span class="op">,</span></span>
-<span id="cb11-699"><a href="#cb11-699" aria-hidden="true" tabindex="-1"></a>        <span class="dt">y</span><span class="op">:</span> <span class="st">"values"</span><span class="op">,</span></span>
-<span id="cb11-700"><a href="#cb11-700" aria-hidden="true" tabindex="-1"></a>        <span class="dt">fill</span><span class="op">:</span> <span class="st">"item"</span><span class="op">,</span></span>
-<span id="cb11-701"><a href="#cb11-701" aria-hidden="true" tabindex="-1"></a>        <span class="dt">tip</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb11-702"><a href="#cb11-702" aria-hidden="true" tabindex="-1"></a>        <span class="co">// kein sort nötig bei Strings, außer du willst manuell sortieren</span></span>
-<span id="cb11-703"><a href="#cb11-703" aria-hidden="true" tabindex="-1"></a>        <span class="co">// sort: {x: "time"}</span></span>
-<span id="cb11-704"><a href="#cb11-704" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb11-705"><a href="#cb11-705" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb11-706"><a href="#cb11-706" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb11-707"><a href="#cb11-707" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-11" data-nodetype="expression">
 
-</div>
-</div>
-</div>
-</section>
-<section id="household-sector" class="level3 g-col-4">
-<h3 class="anchored" data-anchor-id="household-sector">Household Sector</h3>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb12" data-startfrom="716" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 715;"><span id="cb12-716"><a href="#cb12-716" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb12-717"><a href="#cb12-717" aria-hidden="true" tabindex="-1"></a>  <span class="dt">width</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span></span>
-<span id="cb12-718"><a href="#cb12-718" aria-hidden="true" tabindex="-1"></a>  <span class="dt">height</span><span class="op">:</span> <span class="dv">250</span><span class="op">,</span></span>
-<span id="cb12-719"><a href="#cb12-719" aria-hidden="true" tabindex="-1"></a>  <span class="dt">x</span><span class="op">:</span> {</span>
-<span id="cb12-720"><a href="#cb12-720" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Jahr"</span></span>
-<span id="cb12-721"><a href="#cb12-721" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb12-722"><a href="#cb12-722" aria-hidden="true" tabindex="-1"></a>  <span class="dt">y</span><span class="op">:</span> {</span>
-<span id="cb12-723"><a href="#cb12-723" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Wert (values)"</span><span class="op">,</span></span>
-<span id="cb12-724"><a href="#cb12-724" aria-hidden="true" tabindex="-1"></a>    <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb12-725"><a href="#cb12-725" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb12-726"><a href="#cb12-726" aria-hidden="true" tabindex="-1"></a>  <span class="dt">color</span><span class="op">:</span> {</span>
-<span id="cb12-727"><a href="#cb12-727" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="st">"Item"</span><span class="op">,</span></span>
-<span id="cb12-728"><a href="#cb12-728" aria-hidden="true" tabindex="-1"></a>    <span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span></span>
-<span id="cb12-729"><a href="#cb12-729" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb12-730"><a href="#cb12-730" aria-hidden="true" tabindex="-1"></a>  <span class="dt">style</span><span class="op">:</span> {<span class="dt">backgroundColor</span><span class="op">:</span> <span class="st">"black"</span>}<span class="op">,</span></span>
-<span id="cb12-731"><a href="#cb12-731" aria-hidden="true" tabindex="-1"></a>  <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb12-732"><a href="#cb12-732" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">barY</span>(</span>
-<span id="cb12-733"><a href="#cb12-733" aria-hidden="true" tabindex="-1"></a>      <span class="co">// Filter auf S11 und sicherstellen, dass time ein String ist</span></span>
-<span id="cb12-734"><a href="#cb12-734" aria-hidden="true" tabindex="-1"></a>      datNASAB9</span>
-<span id="cb12-735"><a href="#cb12-735" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">sector</span> <span class="op">===</span> <span class="st">"S14_S15"</span>)</span>
-<span id="cb12-736"><a href="#cb12-736" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> ({</span>
-<span id="cb12-737"><a href="#cb12-737" aria-hidden="true" tabindex="-1"></a>          <span class="op">...</span>d<span class="op">,</span></span>
-<span id="cb12-738"><a href="#cb12-738" aria-hidden="true" tabindex="-1"></a>          <span class="dt">time</span><span class="op">:</span> d<span class="op">.</span><span class="at">time</span><span class="op">.</span><span class="fu">toString</span>()</span>
-<span id="cb12-739"><a href="#cb12-739" aria-hidden="true" tabindex="-1"></a>        }))<span class="op">,</span></span>
-<span id="cb12-740"><a href="#cb12-740" aria-hidden="true" tabindex="-1"></a>      {</span>
-<span id="cb12-741"><a href="#cb12-741" aria-hidden="true" tabindex="-1"></a>        <span class="dt">x</span><span class="op">:</span> <span class="st">"time"</span><span class="op">,</span></span>
-<span id="cb12-742"><a href="#cb12-742" aria-hidden="true" tabindex="-1"></a>        <span class="dt">y</span><span class="op">:</span> <span class="st">"values"</span><span class="op">,</span></span>
-<span id="cb12-743"><a href="#cb12-743" aria-hidden="true" tabindex="-1"></a>        <span class="dt">fill</span><span class="op">:</span> <span class="st">"item"</span><span class="op">,</span></span>
-<span id="cb12-744"><a href="#cb12-744" aria-hidden="true" tabindex="-1"></a>        <span class="dt">tip</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
-<span id="cb12-745"><a href="#cb12-745" aria-hidden="true" tabindex="-1"></a>        <span class="co">// kein sort nötig bei Strings, außer du willst manuell sortieren</span></span>
-<span id="cb12-746"><a href="#cb12-746" aria-hidden="true" tabindex="-1"></a>        <span class="co">// sort: {x: "time"}</span></span>
-<span id="cb12-747"><a href="#cb12-747" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb12-748"><a href="#cb12-748" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-749"><a href="#cb12-749" aria-hidden="true" tabindex="-1"></a>  ]</span>
-<span id="cb12-750"><a href="#cb12-750" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-12" data-nodetype="expression">
 
-</div>
-</div>
-</div>
-</section>
-</div>
+
+
+
+::::::{.cell}
+
+```{.js .cell-code .hidden startFrom="395" source-offset="-0"}
+d3 = await import("https://cdn.jsdelivr.net/npm/d3@7/+esm")
+Plot2 = await import("https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm")
+
+d3.csv("NASAsel.csv", d => ({
+  time: d.time, // <-- als String
+  sector: d.sector,
+  values: +d.values,
+  pcntgdp: +d.pcntgdp
+})).then(rawData => {
+  
+  const realData = rawData.filter(d => +d.time <= 2021)
+
+  const forecastDataRaw = rawData.filter(d => +d.time >= 2022)
+
+  const mergedSectors = ["S11", "S12", "S14", "S15"]
+  const forecastSingle = forecastDataRaw.filter(d => !mergedSectors.includes(d.sector))
+
+  const forecastMerged = d3.rollups(
+    forecastDataRaw.filter(d => mergedSectors.includes(d.sector)),
+    v => ({
+      values: d3.sum(v, d => d.values),
+      pcntgdp: d3.sum(v, d => d.pcntgdp)
+    }),
+    d => d.time
+  ).map(([time, sums]) => ({
+    time,
+    sector: "S11–S12–S14–S15",
+    values: sums.values,
+    pcntgdp: sums.pcntgdp
+  }))
+
+  const finalData = realData.concat(forecastSingle).concat(forecastMerged)
+
+  const customColors = {
+    "S11": "#1f77b4",
+    "S12": "#ff7f0e",
+    "S13": "#2ca02c",
+    "S14": "#d62728",
+    "S15": "#9467bd",
+    "S2": "#8c564b",
+    "S11–S12–S14–S15": "#8888aa"
+  }
+
+  return Plot2.plot({
+    marks: [
+      // Echte Daten
+      Plot2.barY(
+        finalData.filter(d => +d.time <= 2021),
+        {
+          x: "time",
+          y: "pcntgdp",
+          fill: "sector",
+          title: d => `${d.sector}: ${d.pcntgdp.toFixed(2)} %`,
+          tip: true,
+          order: "sector"
+        }
+      ),
+      // Forecast-Daten
+      Plot2.barY(
+        finalData.filter(d => +d.time >= 2022),
+        {
+          x: "time",
+          y: "pcntgdp",
+          fill: "sector",
+          title: d => `${d.sector}: ${d.pcntgdp.toFixed(2)} %`,
+          tip: true,
+          order: "sector",
+          opacity: 0.5
+          // kein stroke, kein strokeWidth
+        }
+      )
+    ],
+    color: {
+      legend: true,
+      label: "Sektor",
+      domain: Object.keys(customColors),
+      range: Object.values(customColors)
+    },
+    x: {
+      label: "Jahr",
+      tickFormat: d => d // jetzt String
+    },
+    y: {
+      label: "% des BIP"
+    },
+    style: {
+      fontSize: "12px",
+      backgroundColor: "black" 
+    },
+    width: 500,
+    height: 250
+  });
+});
+```
+
+:::::{.cell-output .cell-output-display}
+
+::::{}
+
+:::{#ojs-cell-8-1 nodetype="declaration"}
+:::
+::::
+:::::
+
+:::::{.cell-output .cell-output-display}
+
+::::{}
+
+:::{#ojs-cell-8-2 nodetype="declaration"}
+:::
+::::
+:::::
+
+:::::{.cell-output .cell-output-display}
+
+::::{}
+
+:::{#ojs-cell-8-3 nodetype="expression"}
+:::
+::::
+:::::
+::::::
+
+
+
+
+
+
+
+:::
+
+::: g-col-1
+### 
+
+<p style="margin-bottom:-15px;margin-top:0px">
+[S11 Non-fin. corp.]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[S12 Fin. corp.]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[S13 Gen. gov.]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[S14 Households]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[S15 NPISH]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[S2 Rest of the world]{style="color:#2ca02c;font-size:10px"}
+</p>
+:::
+
+::: g-col-3
+### 
+<p style="margin-bottom:-15px;margin-top:0px">
+[B2A3G Gross operating surplus and mixed income]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[D1 Compensation of employees]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[D2 Taxes on production and imports]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[D3 Subsidies]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[D41 Interest]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[D42 Distributed income of corporations]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[D43 Reinvested earnings on direct foreign investment]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[D44 Other investment income]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[D45 Rents]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[D5 Current taxes on income, wealth, etc.]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[D61 Net social contributions]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[D62 Social benefits other than social transfers in kind]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[D7 Other current transfers]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[D8 Adjustment for the change in pension entitlements]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[D9 Capital transfers]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[NP]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[P3]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[P5G]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[P6]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[P7]{style="color:#2ca02c;font-size:10px"}
+</p>
+<p style="margin-bottom:-15px;margin-top:0px">
+[B9]{style="color:#2ca02c;font-size:10px"}
+</p>
+:::
+
+::: g-col-4
+### Government Sector
+
+
+
+
+
+
+
+
+
+:::::{.cell}
+
+```{.js .cell-code .hidden startFrom="585" source-offset="0"}
+Plot.plot({
+  width: 500,
+  height: 250,
+  x: {
+    label: "Jahr"
+  },
+  y: {
+    label: "Wert (values)",
+    grid: true
+  },
+  color: {
+    label: "Item",
+    legend: true
+  },
+  style: {backgroundColor: "black"},
+  marks: [
+    Plot.barY(
+      // Filter auf S11 und sicherstellen, dass time ein String ist
+      datNASAB9
+        .filter(d => d.sector === "S13")
+        .map(d => ({
+          ...d,
+          time: d.time.toString()
+        })),
+      {
+        x: "time",
+        y: "values",
+        fill: "item",
+        tip: true,
+        // kein sort nötig bei Strings, außer du willst manuell sortieren
+        // sort: {x: "time"}
+      }
+    )
+  ]
+})
+```
+
+::::{.cell-output .cell-output-display}
+
+:::{#ojs-cell-9 nodetype="expression"}
+:::
+::::
+:::::
+
+
+
+
+
+
+
+:::
+:::::::
+
+:::::: grid
+::: g-col-4
+### Non-Financial Corporations
+
+
+
+
+
+
+
+
+
+:::::{.cell}
+
+```{.js .cell-code .hidden startFrom="630" source-offset="0"}
+Plot.plot({
+  width: 500,
+  height: 250,
+  x: {
+    label: "Jahr"
+  },
+  y: {
+    label: "Wert (values)",
+    grid: true
+  },
+  color: {
+    label: "Item",
+    legend: true
+  },
+  style: {backgroundColor: "black"},
+  marks: [
+    Plot.barY(
+      // Filter auf S11 und sicherstellen, dass time ein String ist
+      datNASAB9
+        .filter(d => d.sector === "S11")
+        .map(d => ({
+          ...d,
+          time: d.time.toString()
+        })),
+      {
+        x: "time",
+        y: "values",
+        fill: "item",
+        tip: true,
+        // kein sort nötig bei Strings, außer du willst manuell sortieren
+        // sort: {x: "time"}
+      }
+    )
+  ]
+})
+```
+
+::::{.cell-output .cell-output-display}
+
+:::{#ojs-cell-10 nodetype="expression"}
+:::
+::::
+:::::
+
+
+
+
+
+
+
+:::
+
+::: g-col-4
+### Financial Corporations
+
+
+
+
+
+
+
+
+
+:::::{.cell}
+
+```{.js .cell-code .hidden startFrom="673" source-offset="0"}
+Plot.plot({
+  width: 500,
+  height: 250,
+  x: {
+    label: "Jahr"
+  },
+  y: {
+    label: "Wert (values)",
+    grid: true
+  },
+  color: {
+    label: "Item",
+    legend: true
+  },
+  style: {backgroundColor: "black"},
+  marks: [
+    Plot.barY(
+      // Filter auf S11 und sicherstellen, dass time ein String ist
+      datNASAB9
+        .filter(d => d.sector === "S12")
+        .map(d => ({
+          ...d,
+          time: d.time.toString()
+        })),
+      {
+        x: "time",
+        y: "values",
+        fill: "item",
+        tip: true,
+        // kein sort nötig bei Strings, außer du willst manuell sortieren
+        // sort: {x: "time"}
+      }
+    )
+  ]
+})
+```
+
+::::{.cell-output .cell-output-display}
+
+:::{#ojs-cell-11 nodetype="expression"}
+:::
+::::
+:::::
+
+
+
+
+
+
+
+:::
+
+::: g-col-4
+### Household Sector
+
+
+
+
+
+
+
+
+
+:::::{.cell}
+
+```{.js .cell-code .hidden startFrom="716" source-offset="0"}
+Plot.plot({
+  width: 500,
+  height: 250,
+  x: {
+    label: "Jahr"
+  },
+  y: {
+    label: "Wert (values)",
+    grid: true
+  },
+  color: {
+    label: "Item",
+    legend: true
+  },
+  style: {backgroundColor: "black"},
+  marks: [
+    Plot.barY(
+      // Filter auf S11 und sicherstellen, dass time ein String ist
+      datNASAB9
+        .filter(d => d.sector === "S14_S15")
+        .map(d => ({
+          ...d,
+          time: d.time.toString()
+        })),
+      {
+        x: "time",
+        y: "values",
+        fill: "item",
+        tip: true,
+        // kein sort nötig bei Strings, außer du willst manuell sortieren
+        // sort: {x: "time"}
+      }
+    )
+  ]
+})
+```
+
+::::{.cell-output .cell-output-display}
+
+:::{#ojs-cell-12 nodetype="expression"}
+:::
+::::
+:::::
+
+
+
+
+
+
+
+:::
+:::::: -->
 <!-- # Inflation -->
 <!-- # Government Finance -->
 <!-- # Foreign Sector -->
@@ -1387,8 +1483,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>This website uses Plausible Analytics to collect anonymous visitor statistics. No cookies are used and no personal data is collected.</p>
-</div>   
+      &nbsp;
+    </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
