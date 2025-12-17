@@ -28,13 +28,6 @@
     "text": "I am an economist and data scientist working on topics related to macroeconomics, monetary theory/policy, fiscal policy, capital flows, sustainable/digital finance, climate/nature risks and socio-ecological transition (in particular the industry, energy and construction sectors). This website contains a blog as well as various visualizations."
   },
   {
-    "objectID": "finsyst/FinSystHistYU/index.html",
-    "href": "finsyst/FinSystHistYU/index.html",
-    "title": "Financial System in SFR Yugoslavia",
-    "section": "",
-    "text": "dataNbyAss = FileAttachment(\"nby_ass.csv\").csv({ typed: true })\ndataNbyLbs = FileAttachment(\"nby_lbs.csv\").csv({ typed: true })\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis page shows data for the financial sector in the former SFR Yugoslavia. The data will be updated for additional periods as well as financial market actors and instruments.\n\nSystem of central banks\nPlot.plot({\n  x: {\n    label: null\n  },\n  y: {\n    grid: true,\n    label: \"Unemployment (%)\"\n  },\n  color: {scheme: \"spectral\",\n  legend: true\n  },\n  marginBottom: 80,\n  style: {backgroundColor: \"black\"},\n  marks: [\n    Plot.ruleY([0]),\n    Plot.barY(dataNbyAss, {\n      x: \"period\",\n      y: \"value\",\n      fill: \"item\",\n      tip: true\n    })\n  ]\n})\nPlot.plot({\n  x: {\n    label: null\n  },\n  y: {\n    grid: true,\n    label: \"Unemployment (%)\"\n  },\n  color: {scheme: \"spectral\",\n  legend: true\n  },\n  style: {backgroundColor: \"black\"},\n  marks: [\n    Plot.ruleY([0]),\n    Plot.barY(dataNbyLbs, {\n      x: \"period\",\n      y: \"value\",\n      fill: \"item\",\n      tip: true\n    })\n  ]\n})\n\n\n\n\n\n\n\n\n\n\n\n\n\n(a) Assets of the System of central banks.\n\n\n\n\n\n\n\n\n\n\n\n\n\n(b) Liabilities of the System of central banks.\n\n\n\n\n\n\n\nFigure 1: Balance sheet of the System of central banks in XX YUD. Source: NBY reports."
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -53,7 +46,7 @@
     "href": "finsyst.html",
     "title": "Financial Systems",
     "section": "",
-    "text": "Financial System in Austria prior to the Euro\n\n\n\n\n\n\n\n\n\n\n\n\n\nFinancial System in SFR Yugoslavia\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Financial System in Austria prior to the Euro\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "forecasting/overviewAT/index.html",
